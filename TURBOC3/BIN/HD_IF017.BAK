@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<conio.h>
+  void main()
+{
+    clrscr();
+    if(10>5)
+    {
+     printf("\n 10 is greater");
+      }
+      else
+      {
+      printf(" 5is greater");
+      }
+      printf("\n end of program");
+
+  getch();
+}

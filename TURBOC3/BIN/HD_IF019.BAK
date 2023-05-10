@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+  int num,area;
+  clrscr();
+  printf("\n enter any number ");
+  scanf("%d",&num);
+  area=3.14*num*num;
+  printf("\n area of circle is %d",area);
+
+  printf("\n");
+  getch();
+}
