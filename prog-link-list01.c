@@ -21,5 +21,8 @@ int main()
 printf("%d\t", p->data = 10);
 printf("%d\t",q->data = 15);
 printf("%d\t",r->data = 20);
+printf("%d\t",r->data = 20);
+printf("%d\t",r->data = 20);
+printf("%d\t",r->data = 20);
 
 }
