@@ -1,121 +1,123 @@
-#include <stdio.h>
-#define MAX 5
+// mplementation of circular queue using linked list
+#include <stdio.h> // Declaration of struct type node
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *front = -1;
+struct node *rear = -1;
+// function to insert the element in the Queue
+void enqueue(int x)
+{
+    struct node *newnode;                                 // declaration of pointer of struct node type.
+    newnode = (struct node *)malloc(sizeof(struct node)); // allocating the memory to the newnode
+    newnode->data = x;
+    newnode->next = 0;
+    if (rear == -1) // checking whether the Queue is empty or not.
+    {
+        front = rear = newnode;
+        rear->next = front;
+    }
+    else
+    {
+        rear->next = newnode;
+        rear = newnode;
+        rear->next = front;
+    }
+}
 
-int a[MAX];
-int front = -1;
-int rear = -1;
+// function to delete the element from the queue
+void dequeue()
+{
+    struct node *temp; // declaration of pointer of node type
+    temp = front;
+    if ((front == -1) && (rear == -1)) // checking whether the queue is empty or not
+    {
+        printf("\nQueue is empty");
+    }
+    else if (front == rear) // checking whether the single element is left in the queue
+    {
+        front = rear = -1;
+        free(temp);
+    }
+    else
+    {
+        front = front->next;
+        rear->next = front;
+        free(temp);
+    }
+}
 
-void insertcq();
-void deletecq();
-void displaycq();
+// function to get the front of the queue
+int peek()
+{
+    if ((front == -1) && (rear == -1))
+    {
+        printf("\nQueue is empty");
+    }
+    else
+    {
+        printf("\nThe front element is %d", front->data);
+    }
+}
+
+// function to display all the elements of the queue
+void display()
+{
+    struct node *temp;
+    temp = front;
+    printf("\n The elements in a Queue are : ");
+    if ((front == -1) && (rear == -1))
+    {
+        printf("Queue is empty");
+    }
+
+    else
+    {
+        while (temp->next != front)
+        {
+            printf("%d,", temp->data);
+            temp = temp->next;
+        }
+        printf("%d", temp->data);
+    }
+}
 
 int main()
 {
-    int choice;
-    while (1)
+    int choice = 1, num;
+
+    while (choice < 4 && choice != 0)
+
     {
-        printf("\nCircular Queue MENU\n");
-        printf("1. Insert element to queue\n");
-        printf("2. Delete element from queue\n");
-        printf("3. Display queue\n");
-        printf("4. Exit\n");
-        printf("Enter your choice : ");
+        printf("\nPress 1: Insert an element");
+        printf("\nPress 2: Delete an element");
+        printf("\nPress 3: Display the element");
+        printf("\npress 4. Exit");
+        printf("\nEnter your choice");
         scanf("%d", &choice);
 
         switch (choice)
         {
+
         case 1:
-            insertcq();
+
+            printf("Enter the element which is to be inserted");
+            scanf("%d", &num);
+            enqueue(num);
             break;
         case 2:
-            deletecq();
+            dequeue();
             break;
         case 3:
-            displaycq();
-            break;
+            display();
         case 4:
             exit(0);
             break;
         default:
-            printf("Invalid choice\n");
+            printf("\n wrong choice");
         }
     }
     return 0;
-}
-
-void insertcq()
-{
-    int item, temp;
-    temp = (rear + 1) % MAX;
-    if (temp == front)
-    {
-        printf("Queue is FULL \n");
-    }
-    else
-    {
-        if (front == -1) /*If queue is empty */
-        {
-            front = 0;
-            rear = 0;
-        }
-        rear = temp;
-        printf("Input the element for insertion in queue : ");
-        scanf("%d", &item);
-        a[rear] = item;
-    }
-}
-
-void deletecq()
-{
-    int item;
-    if (front == -1)
-    {
-        printf("Queue Underflow\n");
-    }
-    else
-    {
-        item = a[front];
-        a[front] = -1;
-        printf("Element deleted from queue is : %d\n", item);
-        if (front == rear) /* queue has only one element */
-        {
-            front = -1;
-            rear = -1;
-        }
-        else
-        {
-            front = (front + 1) % MAX;
-        }
-    }
-}
-
-void displaycq()
-{
-    int i;
-    if (front == -1)
-    {
-        printf("Queue is empty\n");
-    }
-    else
-    {
-        printf("Circular Queue elements are : \n");
-        if (rear >= front)
-        {
-            for (i = front; i <= rear; i++)
-            {
-                printf("%d ", a[i]);
-            }
-        }
-        else
-        {
-            for (i = front; i < MAX; i++)
-            {
-                printf("%d ", a[i]);
-            }
-            for (i = 0; i <= rear; i++)
-            {
-                printf("%d ", a[i]);
-            }
-        }
-    }
 }
