@@ -14,7 +14,7 @@ int fact(int n)
         return (f);
     }
 }
-void main()
+int main()
 {
     int num;
     printf("\n enter numbeer");
