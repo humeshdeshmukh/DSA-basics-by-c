@@ -91,8 +91,8 @@ void display_dll()
     int choice;
 
     printf("\nTraversal path");
-    printf("\n1. Forward direction");
-    printf("\n2. Backward direction");
+    printf("\n1. Forward direction \n");
+    printf("\n2. Backward direction \n");
     printf("\nPlease select: ");
     scanf("%d", &choice);
 
