@@ -61,7 +61,7 @@ void insert_first()
 void delet_first()
 {
     if (start == NULL)
-        
+
     {
         printf("\n empty link list");
     }
@@ -76,17 +76,17 @@ void delet_first()
 }
 void display()
 {
-    if(start==NULL)
+    if (start == NULL)
     {
         printf("\n link list is empty");
     }
     else
     {
-        p=start;
-        while(p!=NULL)
+        p = start;
+        while (p != NULL)
         {
-            printf("\n %d ",p->data);
-            p=p->link;
+            printf("\n %d ", p->data);
+            p = p->link;
         }
     }
 }

@@ -69,7 +69,8 @@ void deletq()
     }
 }
 void display()
-{   int i;
+{
+    int i;
     if (front == rear)
     {
         printf("\n queue is empty");

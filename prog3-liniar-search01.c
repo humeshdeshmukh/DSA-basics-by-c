@@ -8,7 +8,7 @@ int main()
     int i;
     printf("\n enter %d element", MAX);
     for (i = 0; i < MAX; i++)
-        
+
     {
         scanf("%d", &a[i]);
     }
