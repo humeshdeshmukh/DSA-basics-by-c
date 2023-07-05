@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define MAX 10
-void insert_sort(int *a, int n);
+void insert_sort(int *a, int size);
 int main()
 {
     int a[MAX];
@@ -22,10 +22,10 @@ int main()
         printf("\n %d", a[i]);
     }
 }
-void insert_sort(int *a, int n)
+void insert_sort(int *a, int size)
 {
     int i, j, k, index, t;
-    for (i = 1; i < n; i++)
+    for (i = 1; i < size; i++)
     {
         index = a[i];
         j = i;
@@ -37,7 +37,7 @@ void insert_sort(int *a, int n)
             j--;
         }
         printf("\n");
-        for (k = 0; k < n; k++)
+        for (k = 0; k < size; k++)
             printf("%d", a[k]);
         printf("\n");
     }
