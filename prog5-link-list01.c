@@ -7,7 +7,7 @@ struct node
 };
 struct node *start, *p, *q, *m, *n;
 void insert_first();
-void delet_first();
+void delete_first();
 void display();
 int main()
 {
@@ -17,7 +17,7 @@ int main()
     {
         printf("\n menu of link list");
         printf("\n 1. insert in fist position ");
-        printf("\n 2. delet from first position");
+        printf("\n 2. delete from first position");
         printf("\n 3. display");
         printf("\n 4. exit");
         printf("\n  enter your choice");
@@ -28,7 +28,7 @@ int main()
             insert_first();
             break;
         case 2:
-            delet_first();
+            delete_first();
             break;
         case 3:
             display();
@@ -58,7 +58,7 @@ void insert_first()
         start = p;
     }
 }
-void delet_first()
+void delete_first()
 {
     if (start == NULL)
 

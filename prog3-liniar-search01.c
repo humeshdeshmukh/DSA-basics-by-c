@@ -1,14 +1,12 @@
 #include <stdio.h>
 #define MAX 10
 void linear_search(int *a, int size);
-
 int main()
 {
     int a[MAX];
     int i;
     printf("\n enter %d element", MAX);
     for (i = 0; i < MAX; i++)
-
     {
         scanf("%d", &a[i]);
     }
@@ -17,12 +15,12 @@ int main()
 }
 void linear_search(int *a, int size)
 {
-    int item, i, flag = 0;
+    int data, i, flag = 0;
     printf("\n enter the number to be search");
-    scanf("%d", &item);
+    scanf("%d", &data);
     for (i = 0; i < size; i++)
     {
-        if (a[i] == item)
+        if (a[i] == data)
         {
             printf("\n search is successfully");
             printf("\n element fount at position %d", i + 1);
